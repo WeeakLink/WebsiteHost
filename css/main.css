@@ -43,7 +43,7 @@ ol li {
 }
 .column {
     float: left;
-    background-color: #fff;
+    background-color: aliceblue;
 }
 
 /*Navigations(Left Column)*/
@@ -137,7 +137,7 @@ fieldset {
     margin-bottom: 10px;
     margin: 5px;
     padding: 5px;
-    border: 1px solid aliceblue; /*Check this later*/
+    border: 1px solid aliceblue;
     text-align: center;
 }
 .form_group {
@@ -154,6 +154,14 @@ fieldset {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+textarea#enquiry {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 14px;
@@ -180,7 +188,7 @@ fieldset {
 .show {
     display: block;
     background-color: #d9d9d9;
-    color: red; /*Change this later?*/
+    color: red;
     font-weight: bold;
     text-align: center;
     font-size: 20px;
@@ -260,17 +268,136 @@ article section div:last-of-type {
     left: 325px;
 }
 
+/* Responsive adjustments for mobile and small screens */
 @media (max-width: 780px) {
-    .container {
-        padding: 15px;
-    }
-
-    h1, h2 {
-        font-size: 20px;
-    }
-
-    .submission {
+    /* Wrapper adjustment */
+    #wrapper {
+        width: 100%;
         padding: 10px;
-        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+    /* Stack columns */
+    .column {
+        float: none !important;
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    /* Navigation adjustments */
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        border: none;
+        margin: 5px;
+    }
+
+    nav img {
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+
+    /* Slideshow container (relative position for stacking) */
+    #slideshow {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 380px;
+    }
+
+    /* Slideshow image positioning */
+    #slide_image {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    #slide_image img {
+        position: absolute !important;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        top: 0;
+        left: 0;
+    }
+
+    #slide_image img.active {
+        opacity: 1;
+        position: relative !important;
+    }
+
+    /* Slideshow text BELOW slideshow image clearly */
+    #slide_info {
+        position: relative !important;
+        width: 100%;
+        height: auto;
+        left: 0 !important;
+        top: auto !important;
+        margin-top: 15px;
+    }
+
+    #slide_info div {
+        position: relative !important;
+        display: none;
+        opacity: 1 !important;
+    }
+
+    #slide_info div.active {
+        display: block;
+    }
+
+    /* Middle content buttons functionality */
+    .content div {
+        display: none;
+    }
+
+    .content div.active, .content div[style*="display: block"] {
+        display: block !important;
+    }
+
+    .button {
+        display: inline-block !important;
+    }
+
+    /* Column stacking vertically */
+    .column, #right_column {
+        float: none !important;
+        width: 100% !important;
+    }
+
+    /* Footer */
+    footer {
+        clear: both;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Form responsiveness */
+    fieldset, input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+@media (max-width: 780px) {
+    html, body {
+        overflow-x: hidden; /* remove horizontal scrolling completely */
+    }
+
+    /* Ensure all containers fit the viewport width */
+    #wrapper, #slideshow, #slide_image img, #slide_info, nav, 
+    header, main, footer, .column, fieldset {
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+    }
+
+    /* Adjust padding and margins to avoid overflow */
+    .column, section, article, nav, footer, fieldset, .content {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
